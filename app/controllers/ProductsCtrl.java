@@ -52,4 +52,12 @@ public class ProductsCtrl extends Controller {
         flash("success", String.format("Successfully added product %s.", product));
         return redirect(routes.ProductsCtrl.list());
     }
+
+    public static Result delete(String ean) {
+        Product product = ProductCollection.findByEan(ean);
+        if (product != null) {
+            return redirect(routes.ProductsCtrl.list());
+        }
+        return notFound();
+    }
 }
