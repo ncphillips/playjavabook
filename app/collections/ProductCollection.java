@@ -16,6 +16,10 @@ public class ProductCollection {
         products.add(new Product("55555", "Paperclips 5", "Paperclips Description 5"));
     }
 
+    public static List<Product> findAll() {
+        return products;
+    }
+
     public static Product findByEan(String ean) {
         for (Product p : products) {
             if (p.ean.equals(ean)) {
