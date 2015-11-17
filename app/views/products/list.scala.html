@@ -1,6 +1,9 @@
 @(products: List[Product])
 @main("Producs Catalogue") {
     <h2>All Products</h2>
+    <a href="@routes.ProductsCtrl.newProduct()" class="btn btn-primary">
+        Add a Product
+    </a>
     <table class="table table-striped">
         <thead>
             <tr>
