@@ -11,7 +11,7 @@ import play.data.Form;
 // Collections
 import collections.ProductCollection;
 
-// Modelsj
+// Models
 import models.Product;
 
 // Views
@@ -27,7 +27,6 @@ public class ProductsCtrl extends Controller {
     }
 
     public static Result newProduct() {
-
         return ok(view.render(productForm));
     }
 
@@ -36,6 +35,16 @@ public class ProductsCtrl extends Controller {
     }
 
     public static Result save() {
-        return TODO;
+        Form<Product> boundForm = productForm.bindFromRequest();
+
+        if (boundForm.hasErrors()) {
+            flash("error", "Please correct the form below.");
+            return badRequest(view.render(boundForm));
+        }
+
+        Product product = boundForm.get();
+        ProductCollection.save(product);
+        flash("success", String.format("Successfully added product %s.", product));
+        return redirect(routes.ProductsCtrl.list());
     }
 }

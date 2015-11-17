@@ -8,7 +8,7 @@ GET     /                           controllers.Application.index
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-# Routes
+# Product Routes
 GET     /products/                  controllers.ProductsCtrl.list()
 GET     /products/new               controllers.ProductsCtrl.newProduct()
 GET     /products/:ean/             controllers.ProductsCtrl.view(ean: String)
