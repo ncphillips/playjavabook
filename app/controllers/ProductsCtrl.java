@@ -31,7 +31,12 @@ public class ProductsCtrl extends Controller {
     }
 
     public static Result view(String ean) {
-        return TODO;
+        final Product product = ProductCollection.findByEan(ean);
+        if (product == null) {
+            return notFound(String.format("Product %s does not exist.", ean));
+        }
+        Form<Product> filledForm = productForm.fill(product);
+        return ok(view.render(filledForm));
     }
 
     public static Result save() {
