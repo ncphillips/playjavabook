@@ -9,7 +9,7 @@ GET     /                           controllers.Application.index
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Product Routes
-GET     /products/                  controllers.ProductsCtrl.list()
+GET     /products/                  controllers.ProductsCtrl.list(page: Integer ?= 1)
 GET     /products/new               controllers.ProductsCtrl.newProduct()
 GET     /products/:ean/             controllers.ProductsCtrl.view(ean: String)
 POST    /products/                  controllers.ProductsCtrl.save()

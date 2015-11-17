@@ -21,7 +21,7 @@ import views.html.products.view;
 public class ProductsCtrl extends Controller {
     private static final Form<Product> productForm = Form.form(Product.class);
 
-    public static Result list() {
+    public static Result list(Integer page) {
         List<Product> products = ProductCollection.findAll();
         return ok(list.render(products));
     }
