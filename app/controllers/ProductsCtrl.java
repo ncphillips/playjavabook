@@ -56,6 +56,7 @@ public class ProductsCtrl extends Controller {
     public static Result delete(String ean) {
         Product product = ProductCollection.findByEan(ean);
         if (product != null) {
+            ProductCollection.remove(product);
             return redirect(routes.ProductsCtrl.list());
         }
         return notFound();
