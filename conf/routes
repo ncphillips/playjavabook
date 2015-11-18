@@ -11,6 +11,6 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 # Product Routes
 GET     /products/                  controllers.ProductsCtrl.list(page: Integer ?= 1)
 GET     /products/new               controllers.ProductsCtrl.newProduct()
-GET     /products/:ean/             controllers.ProductsCtrl.view(ean: String)
+GET     /products/:ean/             controllers.ProductsCtrl.view(ean: models.Product)
 POST    /products/                  controllers.ProductsCtrl.save()
 DELETE  /products/:ean/             controllers.ProductsCtrl.delete(ean: String)

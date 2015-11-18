@@ -29,17 +29,17 @@
             @for(product <- products) {
                 <tr>
                     <td>
-                        <a href="@routes.ProductsCtrl.view(product.ean)">
+                        <a href="@routes.ProductsCtrl.view(product)">
                             @product.ean
                         </a>
                     </td>
                     <td>
-                        <a href="@routes.ProductsCtrl.view(product.ean)">
+                        <a href="@routes.ProductsCtrl.view(product)">
                             @product.name
                         </a>
                     </td>
                     <td>
-                        <a href="@routes.ProductsCtrl.view(product.ean)">
+                        <a href="@routes.ProductsCtrl.view(product)">
                             @product.description
                         </a>
                     </td>

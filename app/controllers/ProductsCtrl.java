@@ -36,10 +36,9 @@ public class ProductsCtrl extends Controller {
         return ok(view.render(productForm));
     }
 
-    public static Result view(String ean) {
-        final Product product = ProductCollection.findByEan(ean);
+    public static Result view(Product product) {
         if (product == null) {
-            return notFound(String.format("Product %s does not exist.", ean));
+            return notFound(String.format("Product does not exist."));
         }
         Form<Product> filledForm = productForm.fill(product);
         return ok(view.render(filledForm));
