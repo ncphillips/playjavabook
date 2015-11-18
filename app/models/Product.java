@@ -1,11 +1,13 @@
 package models;
 
+import collections.ProductCollection;
+import play.mvc.PathBindable;
 import play.data.validation.Constraints;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Product {
+public class Product implements PathBindable<Product>{
     @Constraints.Required
     public String ean;
     @Constraints.Required
@@ -23,5 +25,20 @@ public class Product {
 
     public String toString() {
         return String.format("%s - %s", ean, name);
+    }
+
+    @Override
+    public Product bind(String key, String value) {
+        return ProductCollection.findByEan(value);
+    }
+
+    @Override
+    public String unbind(String key) {
+        return ean;
+    }
+
+    @Override
+    public String javascriptUnbind() {
+        return ean;
     }
 }
