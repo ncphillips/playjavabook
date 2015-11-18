@@ -44,7 +44,7 @@ public class ProductCollection {
     }
 
     public static void save(Product product) {
-        products.remove(product);
+        products.remove(findByEan(product.ean));
         products.add(product);
     }
 }
