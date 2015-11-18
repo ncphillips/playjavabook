@@ -2,6 +2,7 @@ package models;
 
 import play.data.validation.Constraints;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Product {
@@ -10,6 +11,7 @@ public class Product {
     @Constraints.Required
     public String name;
     public String description;
+    public List<Tag> tags = new LinkedList<Tag>();
 
     public Product() {}
 
